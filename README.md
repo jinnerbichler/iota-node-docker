@@ -12,7 +12,7 @@ This command does the following:
 
 1. Downloads an existing database (to achieve a fully synced state early)
 2. Starts the IRI node
-3. Creates a dashboard, which is accessible via `localhost:8080`
+3. Start a management dashboard ([ipm](https://github.com/akashgoswami/ipm), which is accessible via localhost:8080
 
 **Dependencies**
 

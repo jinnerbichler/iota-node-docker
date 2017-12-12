@@ -1,9 +1,10 @@
 version: '3'
 
 services:
+
   iri:
-    image: iotaledger/iri:v1.4.1.2
     container_name: iri_node
+    image: iotaledger/iri:v1.4.1.2
     ports:
       - "14265:14265"
       - "14777:14777/udp"
@@ -11,8 +12,10 @@ services:
     volumes:
       - ./config/iota.ini:/iri/iota.ini
       - ./config/logback.xml:/iri/conf/logback.xml
-      - ./mainnet_db:/iri/mainnet_db
+      - mainnet_db:/iri/mainnet_db
     restart: always
+    depends_on:
+      - database
     entrypoint:
       - "/usr/bin/java"
       - "-XX:+DisableAttachMechanism"
@@ -23,11 +26,20 @@ services:
       - "-jar"
       - "iri.jar"
       - "--remote"
+
+  database:
+    container_name: iri_database
+    build:
+      context: .
+      dockerfile: Dockerfile-db
+    volumes:
+      - mainnet_db:/mainnet_db
+
   dashboard:
+    container_name: iri_dashboard
     build:
       context: .
       dockerfile: Dockerfile-ipm
-    container_name: iri_dashboard
     restart: always
     ports:
       - "8080:80"
@@ -40,3 +52,6 @@ services:
        - "--iri=http://iri:14265"
        - "--port=0.0.0.0:80"
        - "--refresh=10"
+
+volumes:
+  mainnet_db:

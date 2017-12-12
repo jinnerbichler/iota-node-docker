@@ -1,0 +1,7 @@
+FROM node:9.2.0
+
+# build and install
+RUN npm i -g iota-pm
+
+CMD ["-i",  "http://127.0.0.1:14800", "-p", "127.0.0.1:8888"]
+ENTRYPOINT iota-pm

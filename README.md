@@ -10,9 +10,9 @@ in order to start the setup.
 
 This command does the following:
 
-1. Downloads an existing database (to achieve a fully synced state early)
+1. Downloads an existing database (to achieve a fully synced state early). This might take a while.
 2. Starts the IRI node
-3. Starts a management dashboard ([ipm](https://github.com/akashgoswami/ipm)), which is accessible via localhost:8080
+3. Starts a management dashboard ([ipm](https://github.com/akashgoswami/ipm)), which is accessible via [localhost:8080](localhost:8080)
 
 The log output can be accessed via
 

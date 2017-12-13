@@ -27,9 +27,11 @@ docker-compose logs -f
 
 ## Update Neigbours/Config
 
-To add neighbours simply add or remove the endpoint of the neighbor (e.g. tcp://host123:8080) to/from the config file (`./config/iota/ini`) and restart the containers via 
+To update the list of neighbours simply add or remove the endpoint of the neighbor (e.g. tcp://host123:8080) to/from the config file (`./config/iota/ini`) and restart the containers via 
 
-```docker-compose up -d --force-recreate```
+```docker-compose up --no-deps -d --force-recreate iri```
+
+If you experience any problems please contact me on Slack (@jinnerbi).
 
 
 **Have fun :)**

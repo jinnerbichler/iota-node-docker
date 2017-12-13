@@ -6,12 +6,9 @@ RUN apt-get update
 RUN apt-get install -y curl tar
 
 # Download database
-RUN mkdir /mainnet_db/
-WORKDIR "/tmp/"
-RUN curl -O http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz
-RUN tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /mainnet_db/
-RUN rm /tmp/IOTA.partners-mainnetdb.tar.gz
-WORKDIR "/mainnet_db/"
+RUN curl -o /tmp/mainnetdb.tar.gz http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz
+RUN tar xzfv /tmp/mainnetdb.tar.gz -C /mainnet_db/
+RUN rm /tmp/mainnetdb.tar.gz
 
 # Create volume
 VOLUME /mainnet_db

@@ -33,5 +33,7 @@ To update the list of neighbours simply add or remove the endpoint of the neighb
 
 If you experience any problems please contact me on Slack (@jinnerbi).
 
+DON'T forget to comment ```RESCAN_DB=true``` (change it to ```;RESCAN_DB=true```). Otherwise the startup will take ages.
+
 
 **Have fun :)**

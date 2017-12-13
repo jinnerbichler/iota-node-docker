@@ -15,4 +15,4 @@ RUN rm /tmp/mainnetdb.tar.gz
 VOLUME /mainnet_db
 
 # run forever
-CMD /bin/sh
+CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"

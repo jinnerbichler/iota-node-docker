@@ -35,6 +35,18 @@ services:
     volumes:
       - mainnet_db:/mainnet_db
 
+  nelson:
+    image: romansemko/nelson:latest
+    container_name: iri_nelson
+    ports:
+      - "18600:18600"
+      - "16600:16600"
+    depends_on:
+      - iri
+    volumes:
+      - ./config/nelson.ini:/iri/nelson.ini
+    command: ["--config", "/iri/nelson.ini"]
+
   dashboard:
     container_name: iri_dashboard
     build:
@@ -52,6 +64,13 @@ services:
        - "--iri=http://iri:14265"
        - "--port=0.0.0.0:80"
        - "--refresh=10"
+
+  start_iri:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - iri
+      - database
+    command: iri:14265
 
 volumes:
   mainnet_db:

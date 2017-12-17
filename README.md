@@ -3,7 +3,7 @@
 Simply run
 
 ```
-docker-compose up -d --build
+ docker-compose run --rm start_iri && docker-compose up -d --build
 ```
 
 in order to start the setup.

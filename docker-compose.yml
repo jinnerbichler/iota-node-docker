@@ -4,7 +4,7 @@ services:
 
   iri:
     container_name: iri_node
-    image: iotaledger/iri:v1.4.1.2
+    image: iotaledger/iri:v1.4.1.4
     ports:
       - "14265:14265"
       - "14777:14777/udp"
